@@ -19,10 +19,11 @@ namespace Domain.Entites
         }
 
 
-        public DevelopmentLanguage (int id, string name)
-        {
-            Name = name;
+        public DevelopmentLanguage (int id, string name):this()
+        {   
             Id = id;
+            Name = name;
+            
         }
 
     }
