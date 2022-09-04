@@ -18,7 +18,7 @@ namespace Application.Features.DevelopmentLanguages.Rules
         {
             _developmentLanguageRepository = developmentLanguageRepository;
         }
-
+         
 
         public async Task DevelopmentLanguageNameCanNotBeDuplicatedWhenInsertedAndUpdated(string name)
         {
