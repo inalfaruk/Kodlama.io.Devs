@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 
 //builder.Services.AddSecurityServices();
 builder.Services.AddPersistenceServices(builder.Configuration);
-
+builder.Services.AddApplicationServices();
 //builder.Services.AddInfrastructureServices();
 //builder.Services.AddHttpContextAccessor();
 

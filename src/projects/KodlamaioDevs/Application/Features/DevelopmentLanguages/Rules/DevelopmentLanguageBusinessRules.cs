@@ -20,18 +20,34 @@ namespace Application.Features.DevelopmentLanguages.Rules
         }
 
 
-        public async Task DevelopmentLanguageNameCanNotBeDuplicatedWhenInserted(string name)
+        public async Task DevelopmentLanguageNameCanNotBeDuplicatedWhenInsertedAndUpdated(string name)
         {
             IPaginate<DevelopmentLanguage> result = await _developmentLanguageRepository.GetListAsync(d => d.Name == name);
-            if (result.Items.Any()) throw new BusinessException("Development Language name exists");
+            if (result.Items.Any()) throw new BusinessException("Development language name exists");
 
 
         }
 
-        public async Task DevelopmentLanguageNameCanNotBeBlankWhenInserted(string name)
+        public async Task DevelopmentLanguageNameCanNotBeBlankWhenInsertedAndUpdated(string name)
         {
-            IPaginate<DevelopmentLanguage> result = await _developmentLanguageRepository.GetListAsync(d => d.Name.Length<=0);
-            if (result.Items.Any()) throw new BusinessException("Development Language name can't be blank");
+        
+            if (name=="") throw new BusinessException("Development language name can't be blank");
         }
+
+        public async Task DevelopmentLanguageIdCanNotBeLessOneWhenDeleted(int id)
+        {
+            if (id <1)
+            {
+                throw new BusinessException("Development language id can't be less 1 for delete");
+            }
+        }
+
+
+      
+
+          
+           
+           
+        
     }
 }
